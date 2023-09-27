@@ -6,7 +6,6 @@ import Levenshtein
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
-# from sklearn.metrics.pairwise import cosine_similarity
 from nltk.probability import FreqDist
 import string
 nltk.download('punkt')
@@ -14,7 +13,6 @@ nltk.download('stopwords')
 from nltk.stem.porter import *
 import numpy as np
 stop_words = set(stopwords.words('english'))    # Remove stopwords
-# stemmer = PorterStemmer()
 pd.set_option('display.max_colwidth', None)
 pd.set_option('display.max_columns', None)
 
@@ -169,7 +167,7 @@ for i in range(len(data)):
         temp_result_df.columns = ['ID', 'Symptom Expressions', 'Standard Symptom', 'Symptom CUIs', 'Negation Flag']
         final_df = pd.concat([final_df,temp_result_df], axis=0)
     else:
-        new_record = pd.DataFrame([{'ID': post_id, 'Symptom Expressions': '$$$', 'Standard Symptom': '$$$', 'Symptom CUIs': '$$$', 'Negation Flag': '$$$'}])
+        new_record = pd.DataFrame([{'ID': post_id, 'Symptom Expressions': '$$$$$$', 'Standard Symptom': '$$$$$$', 'Symptom CUIs': '$$$$$$', 'Negation Flag': '$$$$$$'}])
         final_df = pd.concat([final_df, new_record], ignore_index=True)
 
     cui_text_list = []
@@ -205,7 +203,7 @@ final_df.to_excel('final_annotated_file_on_unlabeled_dataset2.xlsx',index = Fals
 # final_fuzzy_df.to_excel('unique_threshold_70_fuzzy_final_annotated_file.xlsx',index = False)
 
 ## Run EvaluationScript.py
-
+################# Following code was used to plot certain charts for the report! ####################
 # df_plot = pd.read_excel('EvaluationGoldStandardSet.xlsx')
 # # df_plot = pd.read_excel('unique_final_annotated_file.xlsx')
 # # dictionary = {}
